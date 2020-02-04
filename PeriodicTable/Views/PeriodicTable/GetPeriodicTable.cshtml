@@ -1,0 +1,36 @@
+﻿@model List<Element>
+
+<h1>Tabla Periodica de los Elementos Químicos</h1>
+
+<table>
+    @for (int i = 1; i < 19; i++)
+    {
+    <tr>
+        @*@for (int j = 0; j < 19; j++)
+        {*@
+            @if (i < 18)
+            {
+                <td></td>
+            }
+            else
+            {
+                <td>
+                    <div>
+                        @Model[i].Number
+                    </div>
+                    <div>
+                        @Model[i].Symbol
+                    </div>
+                    <div>
+                        @Model[i].Name
+                    </div>
+                </td>
+            }
+
+        @*}*@
+    </tr>
+    }
+
+</table>
+
+
