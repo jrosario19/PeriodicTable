@@ -3,60 +3,247 @@
     <link href="~/css/PeriodicTableStyle.css" rel="stylesheet" />
 </head>
 @{
-    var dif = 162 - Model.Count();
-    var range = 162 + dif;
+    var PositionCounter = 0;
 }
-<div class="text-center">
+<div class="text-center" style="z-index:1;position:relative">
     <h1>Tabla Periódica de los Elementos Químicos</h1>
 
     <table align="center">
         <tr>
-            @for (int i = 0; i < 162; i++)
+            @for (int i = 0; i < Model.Count; i++)
             {
 
 
-                @if ((i != 0 && i < 17) || (i > 19 && i < 30) || (i > 37 && i < 48) || (i > 126 && i < 129) || (i > 144 && i < 147))
+                @if ((PositionCounter != 0 && PositionCounter < 17) || (PositionCounter > 19 && PositionCounter < 30) || (PositionCounter > 37 && PositionCounter < 48) || (PositionCounter > 126 && PositionCounter < 129) || (PositionCounter > 144 && PositionCounter < 147))
                 {
                     <td style="width:60px"></td>
+                    if (Model[i].OrderNo!=PositionCounter)
+                    {
+                        i--;
+                    }
                 }
                 else
                 {
-                    if ((i % 18 == 0) && (i != 126))
+                    if ((PositionCounter % 18 == 0) && (PositionCounter != 126))
                     {
                     <tr></tr>
 
                 }
-                if (i == 126)
+                if (PositionCounter == 126)
                 {
                     <tr><td style="height:30px"></td></tr>
                 }
 
 
-                if (Model[i].OrderNo == i)
+                if (Model[i].OrderNo == PositionCounter)
                 {
-                    <td class="element">
-                        <div class="name-number">
-                            @Model[i].Number
-                        </div>
-                        <div class="symbol div-element">
-                            @Model[i].Symbol
-                        </div>
-                        <div class="name-number div-element">
-                            @Model[i].Name
-                        </div>
-                    </td>
+                    if (Model[i].ElementClass == "Metales de transición")
+                    {
+                        <td class="element metales-transicion">
+                            <div class="name-number">
+                                @Model[i].Number
+                            </div>
+                            <div class="symbol div-element">
+                                @Model[i].Symbol
+                            </div>
+                            <div class="name-number div-element">
+                                @Model[i].Name
+                            </div>
+                        </td>
+                    }
+                    else
+                    {
+                        if (Model[i].ElementClass == "Otros metales")
+                        {
+                            <td class="element otros-metales">
+                                <div class="name-number">
+                                    @Model[i].Number
+                                </div>
+                                <div class="symbol div-element">
+                                    @Model[i].Symbol
+                                </div>
+                                <div class="name-number div-element">
+                                    @Model[i].Name
+                                </div>
+                            </td>
+                        }
+                        else
+                        {
+                            if (Model[i].ElementClass == "Otros No Metales")
+                            {
+                                <td class="element otros-no-metales">
+                                    <div class="name-number">
+                                        @Model[i].Number
+                                    </div>
+                                    <div class="symbol div-element">
+                                        @Model[i].Symbol
+                                    </div>
+                                    <div class="name-number div-element">
+                                        @Model[i].Name
+                                    </div>
+                                </td>
+
+                            }
+                            else
+                            {
+                                if (Model[i].ElementClass == "Alcalinos")
+                                {
+                                    <td class="element alcalinos">
+                                        <div class="name-number">
+                                            @Model[i].Number
+                                        </div>
+                                        <div class="symbol div-element">
+                                            @Model[i].Symbol
+                                        </div>
+                                        <div class="name-number div-element">
+                                            @Model[i].Name
+                                        </div>
+                                    </td>
+                                }
+                                else
+                                {
+                                    if (Model[i].ElementClass == "Alcalinoférreos")
+                                    {
+                                        <td class="element alcalinoterreos">
+                                            <div class="name-number">
+                                                @Model[i].Number
+                                            </div>
+                                            <div class="symbol div-element">
+                                                @Model[i].Symbol
+                                            </div>
+                                            <div class="name-number div-element">
+                                                @Model[i].Name
+                                            </div>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        if (Model[i].ElementClass == "Lantanidos")
+                                        {
+                                            <td class="element lantanidos">
+                                                <div class="name-number">
+                                                    @Model[i].Number
+                                                </div>
+                                                <div class="symbol div-element">
+                                                    @Model[i].Symbol
+                                                </div>
+                                                <div class="name-number div-element">
+                                                    @Model[i].Name
+                                                </div>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            if (Model[i].ElementClass == "Actinidos")
+                                            {
+                                                <td class="element actinidos">
+                                                    <div class="name-number">
+                                                        @Model[i].Number
+                                                    </div>
+                                                    <div class="symbol div-element">
+                                                        @Model[i].Symbol
+                                                    </div>
+                                                    <div class="name-number div-element">
+                                                        @Model[i].Name
+                                                    </div>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                if (Model[i].ElementClass == "Metaloides")
+                                                {
+                                                    <td class="element metaloides">
+                                                        <div class="name-number">
+                                                            @Model[i].Number
+                                                        </div>
+                                                        <div class="symbol div-element">
+                                                            @Model[i].Symbol
+                                                        </div>
+                                                        <div class="name-number div-element">
+                                                            @Model[i].Name
+                                                        </div>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    if (Model[i].ElementClass == "Halogenos")
+                                                    {
+                                                        <td class="element halogenos">
+                                                            <div class="name-number">
+                                                                @Model[i].Number
+                                                            </div>
+                                                            <div class="symbol div-element">
+                                                                @Model[i].Symbol
+                                                            </div>
+                                                            <div class="name-number div-element">
+                                                                @Model[i].Name
+                                                            </div>
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Model[i].ElementClass == "Gases Nobles")
+                                                        {
+                                                            <td class="element gases-nobles">
+                                                                <div class="name-number">
+                                                                    @Model[i].Number
+                                                                </div>
+                                                                <div class="symbol div-element">
+                                                                    @Model[i].Symbol
+                                                                </div>
+                                                                <div class="name-number div-element">
+                                                                    @Model[i].Name
+                                                                </div>
+                                                            </td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td>
+                                                                <div class="name-number">
+                                                                    @Model[i].Number
+                                                                </div>
+                                                                <div class="symbol div-element">
+                                                                    @Model[i].Symbol
+                                                                </div>
+                                                                <div class="name-number div-element">
+                                                                    @Model[i].Name
+                                                                </div>
+                                                            </td>
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+
+                            }
+
+
+                        }
+
+                    }
+
+
                 }
                 else
                 {
-                    <td style="width:60px;background-color:grey;height:60px"></td>
-
+                    <td style="width:60px;background-color:grey;height:60px;border:2px solid gray"></td>
+                    i--;
                 }
 
 
 
             }
 
-
+                PositionCounter++;
 
             }
             </tr>
@@ -66,36 +253,30 @@
         <br />
         <table class="text-center" >
             <tr>
-                <td colspan="5" style="border:2px solid gray">Metales</td>
-                <td rowspan="3" style="border:2px solid gray">Metaloides</td>
-                <td colspan="3" style="border:2px solid gray">No Metales</td>
+                <td colspan="5" style="border:2px solid gray;background-color:lightgray;font-weight:700">Metales</td>
+                <td rowspan="3" style="border:2px solid gray;width:124px;font-weight:700" class="metaloides">Metaloides</td>
+                <td colspan="3" style="border:2px solid gray;background-color:lightgray;font-weight:700">No Metales</td>
             </tr>
             <tr>
-                <td rowspan="2" style="border:2px solid gray">Alcalinos</td>
-                <td rowspan="2" style="border:2px solid gray">Alcalinoférreos</td>
-                <td rowspan="2" style="border:2px solid gray">Metales de transición</td>
-                <td style="border:2px solid gray">Lantinidos</td>
-                <td rowspan="2" style="border:2px solid gray">Otros metales</td>
-                <td rowspan="2" style="border:2px solid gray">Otros No Metales</td>
-                <td rowspan="2" style="border:2px solid gray">Halogenos</td>
-                <td rowspan="2" style="border:2px solid gray">Gases Nobles</td>
+                <td rowspan="2" style="border:2px solid gray;width:124px;font-weight:700" class="alcalinos">Alcalinos</td>
+                <td rowspan="2" style="border:2px solid gray;width:124px;font-weight:700" class="alcalinoterreos">Alcalinoférreos</td>
+                <td rowspan="2" style="border:2px solid gray;width:124px;font-weight:700" class="metales-transicion">Metales de transición</td>
+                <td style="border:2px solid gray;width:120px;font-weight:700" class="lantanidos">Lantanidos</td>
+                <td rowspan="2" style="border:2px solid gray;width:124px;font-weight:700" class="otros-metales">Otros metales</td>
+                <td rowspan="2" style="border:2px solid gray;width:124px;font-weight:700" class="otros-no-metales">Otros No Metales</td>
+                <td rowspan="2" style="border:2px solid gray;width:124px;font-weight:700" class="halogenos">Halogenos</td>
+                <td rowspan="2" style="border:2px solid gray;width:126px;font-weight:700" class="gases-nobles">Gases Nobles</td>
             </tr>
             <tr>
-                <td style="border:2px solid gray">Actinidos</td>
+                <td style="border:2px solid gray;font-weight:700" class="actinidos">Actinidos</td>
             </tr>
-            @*<tr>
-            <td style="height:30px;width:600px;background-color:lightgray;border:2px solid gray;font-size:14px;font-weight:700" colspan="5">Metales</td>
-        </tr>
-        <tr>
-            <td style="width:120px;height:60px;border:2px solid gray;font-size:14px;font-weight:700" class="alcalinos align-content-between" rowspan="2">Alcalinos</td>
-
-        <tr>
-            <td style="width:120px;height:60px" rowspan="1">Alcalinos fe</td>
-            <td style="width:120px;height:60px" rowspan="1">Alcalinos fe</td>
-        </tr>
-        </tr>*@
+            
         </table>
-        
+        <div>
+            <video autoplay loop muted class="video-container">
+                <source src="~/Video/Video TP 3D.mp4" type="video/mp4" />
+            </video>
+        </div>
     </div>
 
 

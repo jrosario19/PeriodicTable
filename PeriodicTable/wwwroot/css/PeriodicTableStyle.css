@@ -12,34 +12,42 @@
     font-weight:700;
 }
 .alcalinos {
-    background-color: darkmagenta;
+    background-color: rgba(199, 87, 238, 0.92);
 }
 .alcalinoterreos {
-    background-color: blueviolet
+    background-color: rgba(220, 78, 221, 0.87)
 }
 .metales-transicion {
-    background-color:darkgoldenrod
+    background-color: rgba(246, 141, 11, 0.83)
 }
 .lantanidos{
-    background-color:coral
+    background-color: rgba(219, 121, 56, 0.90)
 }
 .actinidos {
-    background-color:fuchsia
+    background-color:rgba(217, 171, 132, 0.94)
 }
 .otros-metales{
-    background-color:gold
+    background-color:rgba(242, 177, 21, 0.82)
 }
 .metaloides{
-    background-color:greenyellow
+    background-color:rgba(176, 229, 23, 0.92)
 }
 .otros-no-metales{
-    background-color:darkgreen
+    background-color:rgba(79, 141, 78, 0.89)
 }
 .halogenos{
-    background-color:cornflowerblue
+    background-color:rgba(110, 206, 237, 0.94)
 }
 .gases-nobles{
-    background-color:aqua
+    background-color:rgba(20, 168, 189, 0.97)
+}
+.video-container{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:-1
+    
 }
 
 

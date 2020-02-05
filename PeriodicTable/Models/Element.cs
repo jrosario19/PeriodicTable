@@ -11,6 +11,7 @@ namespace PeriodicTable.Models
         public string Symbol { get; set; }
         public string Name { get; set; }
         public string Number { get; set; }
+        public string ElementClass { get; set; }
 
     }
 }
