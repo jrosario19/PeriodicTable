@@ -1,36 +1,101 @@
 ﻿@model List<Element>
+<head>
+    <link href="~/css/PeriodicTableStyle.css" rel="stylesheet" />
+</head>
+@{
+    var dif = 162 - Model.Count();
+    var range = 162 + dif;
+}
+<div class="text-center">
+    <h1>Tabla Periódica de los Elementos Químicos</h1>
 
-<h1>Tabla Periodica de los Elementos Químicos</h1>
-
-<table>
-    @for (int i = 1; i < 19; i++)
-    {
-    <tr>
-        @*@for (int j = 0; j < 19; j++)
-        {*@
-            @if (i < 18)
+    <table align="center">
+        <tr>
+            @for (int i = 0; i < 162; i++)
             {
-                <td></td>
-            }
-            else
-            {
-                <td>
-                    <div>
-                        @Model[i].Number
-                    </div>
-                    <div>
-                        @Model[i].Symbol
-                    </div>
-                    <div>
-                        @Model[i].Name
-                    </div>
-                </td>
+
+
+                @if ((i != 0 && i < 17) || (i > 19 && i < 30) || (i > 37 && i < 48) || (i > 126 && i < 129) || (i > 144 && i < 147))
+                {
+                    <td style="width:60px"></td>
+                }
+                else
+                {
+                    if ((i % 18 == 0) && (i != 126))
+                    {
+                    <tr></tr>
+
+                }
+                if (i == 126)
+                {
+                    <tr><td style="height:30px"></td></tr>
+                }
+
+
+                if (Model[i].OrderNo == i)
+                {
+                    <td class="element">
+                        <div class="name-number">
+                            @Model[i].Number
+                        </div>
+                        <div class="symbol div-element">
+                            @Model[i].Symbol
+                        </div>
+                        <div class="name-number div-element">
+                            @Model[i].Name
+                        </div>
+                    </td>
+                }
+                else
+                {
+                    <td style="width:60px;background-color:grey;height:60px"></td>
+
+                }
+
+
+
             }
 
-        @*}*@
-    </tr>
-    }
 
-</table>
+
+            }
+            </tr>
+
+        </table>
+        <br />
+        <br />
+        <table class="text-center" >
+            <tr>
+                <td colspan="5" style="border:2px solid gray">Metales</td>
+                <td rowspan="3" style="border:2px solid gray">Metaloides</td>
+                <td colspan="3" style="border:2px solid gray">No Metales</td>
+            </tr>
+            <tr>
+                <td rowspan="2" style="border:2px solid gray">Alcalinos</td>
+                <td rowspan="2" style="border:2px solid gray">Alcalinoférreos</td>
+                <td rowspan="2" style="border:2px solid gray">Metales de transición</td>
+                <td style="border:2px solid gray">Lantinidos</td>
+                <td rowspan="2" style="border:2px solid gray">Otros metales</td>
+                <td rowspan="2" style="border:2px solid gray">Otros No Metales</td>
+                <td rowspan="2" style="border:2px solid gray">Halogenos</td>
+                <td rowspan="2" style="border:2px solid gray">Gases Nobles</td>
+            </tr>
+            <tr>
+                <td style="border:2px solid gray">Actinidos</td>
+            </tr>
+            @*<tr>
+            <td style="height:30px;width:600px;background-color:lightgray;border:2px solid gray;font-size:14px;font-weight:700" colspan="5">Metales</td>
+        </tr>
+        <tr>
+            <td style="width:120px;height:60px;border:2px solid gray;font-size:14px;font-weight:700" class="alcalinos align-content-between" rowspan="2">Alcalinos</td>
+
+        <tr>
+            <td style="width:120px;height:60px" rowspan="1">Alcalinos fe</td>
+            <td style="width:120px;height:60px" rowspan="1">Alcalinos fe</td>
+        </tr>
+        </tr>*@
+        </table>
+        
+    </div>
 
 

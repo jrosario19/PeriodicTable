@@ -1,0 +1,46 @@
+﻿.element {
+    border:2px solid gray;
+    width:70px;
+    height:60px;
+    align-content:center;
+}
+.name-number {
+    font-size:11px;
+}
+.symbol {
+    font-size:18px;
+    font-weight:700;
+}
+.alcalinos {
+    background-color: darkmagenta;
+}
+.alcalinoterreos {
+    background-color: blueviolet
+}
+.metales-transicion {
+    background-color:darkgoldenrod
+}
+.lantanidos{
+    background-color:coral
+}
+.actinidos {
+    background-color:fuchsia
+}
+.otros-metales{
+    background-color:gold
+}
+.metaloides{
+    background-color:greenyellow
+}
+.otros-no-metales{
+    background-color:darkgreen
+}
+.halogenos{
+    background-color:cornflowerblue
+}
+.gases-nobles{
+    background-color:aqua
+}
+
+
+
