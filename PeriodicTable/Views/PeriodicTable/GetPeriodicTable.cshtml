@@ -1,13 +1,31 @@
 ﻿@model List<Element>
 <head>
     <link href="~/css/PeriodicTableStyle.css" rel="stylesheet" />
+    <script src="~/js/ElementZoomin.js"></script>
 </head>
 @{
     var PositionCounter = 0;
 }
 <div class="text-center" style="z-index:1;position:relative">
     <h1>Tabla Periódica de los Elementos Químicos</h1>
+    <div style="margin-left:400px" class="text-center">
+        <table id="ElementZoomin">
+            <tr id="ElementTR">
+                <td style="width:120px;height:120px">
+                    <div id="NumberZoomin" style="font-size:25px;font-weight:400">
 
+                    </div>
+                    <div id="SymbolZoomin" style="font-size:40px;font-weight:700">
+
+                    </div>
+                    <div id="NameZoomin" style="font-size:25px;font-weight:400">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
     <table align="center">
         <tr>
             @for (int i = 0; i < Model.Count; i++)
@@ -17,7 +35,7 @@
                 @if ((PositionCounter != 0 && PositionCounter < 17) || (PositionCounter > 19 && PositionCounter < 30) || (PositionCounter > 37 && PositionCounter < 48) || (PositionCounter > 126 && PositionCounter < 129) || (PositionCounter > 144 && PositionCounter < 147))
                 {
                     <td style="width:60px"></td>
-                    if (Model[i].OrderNo!=PositionCounter)
+                    if (Model[i].OrderNo != PositionCounter)
                     {
                         i--;
                     }
@@ -39,7 +57,7 @@
                 {
                     if (Model[i].ElementClass == "Metales de transición")
                     {
-                        <td class="element metales-transicion">
+                        <td class="element metales-transicion" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                             <div class="name-number">
                                 @Model[i].Number
                             </div>
@@ -55,7 +73,7 @@
                     {
                         if (Model[i].ElementClass == "Otros metales")
                         {
-                            <td class="element otros-metales">
+                            <td class="element otros-metales" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                 <div class="name-number">
                                     @Model[i].Number
                                 </div>
@@ -71,7 +89,7 @@
                         {
                             if (Model[i].ElementClass == "Otros No Metales")
                             {
-                                <td class="element otros-no-metales">
+                                <td class="element otros-no-metales" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                     <div class="name-number">
                                         @Model[i].Number
                                     </div>
@@ -88,7 +106,7 @@
                             {
                                 if (Model[i].ElementClass == "Alcalinos")
                                 {
-                                    <td class="element alcalinos">
+                                    <td class="element alcalinos" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                         <div class="name-number">
                                             @Model[i].Number
                                         </div>
@@ -104,7 +122,7 @@
                                 {
                                     if (Model[i].ElementClass == "Alcalinoférreos")
                                     {
-                                        <td class="element alcalinoterreos">
+                                        <td class="element alcalinoterreos" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                             <div class="name-number">
                                                 @Model[i].Number
                                             </div>
@@ -120,7 +138,7 @@
                                     {
                                         if (Model[i].ElementClass == "Lantanidos")
                                         {
-                                            <td class="element lantanidos">
+                                            <td class="element lantanidos" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                                 <div class="name-number">
                                                     @Model[i].Number
                                                 </div>
@@ -136,7 +154,7 @@
                                         {
                                             if (Model[i].ElementClass == "Actinidos")
                                             {
-                                                <td class="element actinidos">
+                                                <td class="element actinidos" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                                     <div class="name-number">
                                                         @Model[i].Number
                                                     </div>
@@ -152,7 +170,7 @@
                                             {
                                                 if (Model[i].ElementClass == "Metaloides")
                                                 {
-                                                    <td class="element metaloides">
+                                                    <td class="element metaloides" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                                         <div class="name-number">
                                                             @Model[i].Number
                                                         </div>
@@ -168,7 +186,7 @@
                                                 {
                                                     if (Model[i].ElementClass == "Halogenos")
                                                     {
-                                                        <td class="element halogenos">
+                                                        <td class="element halogenos" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                                             <div class="name-number">
                                                                 @Model[i].Number
                                                             </div>
@@ -184,7 +202,7 @@
                                                     {
                                                         if (Model[i].ElementClass == "Gases Nobles")
                                                         {
-                                                            <td class="element gases-nobles">
+                                                            <td class="element gases-nobles" id="E_@PositionCounter" onmouseover="Zoomin(@PositionCounter)" onmouseout="Zoomout(@PositionCounter)">
                                                                 <div class="name-number">
                                                                     @Model[i].Number
                                                                 </div>
@@ -251,7 +269,7 @@
         </table>
         <br />
         <br />
-        <table class="text-center" >
+        <table class="text-center">
             <tr>
                 <td colspan="5" style="border:2px solid gray;background-color:lightgray;font-weight:700">Metales</td>
                 <td rowspan="3" style="border:2px solid gray;width:124px;font-weight:700" class="metaloides">Metaloides</td>
@@ -270,7 +288,7 @@
             <tr>
                 <td style="border:2px solid gray;font-weight:700" class="actinidos">Actinidos</td>
             </tr>
-            
+
         </table>
         <div>
             <video autoplay loop muted class="video-container">

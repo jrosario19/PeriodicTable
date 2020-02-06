@@ -49,6 +49,10 @@
     z-index:-1
     
 }
+.selectedcell{
+    border:4px groove rgba(128, 125, 137, 0.73);
+    /*background-color:aliceblue;*/
+}
 
 
 
